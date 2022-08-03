@@ -1,7 +1,8 @@
+import Game from './components/Game';
 import './App.css';
 
 const App = () => {
-  return <div className="App">App</div>;
+  return <Game />;
 };
 
 export default App;
