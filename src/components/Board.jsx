@@ -3,15 +3,17 @@ import { useState } from 'react';
 
 const Board = () => {
   const [squares, setSquares] = useState(Array(9).fill(null));
+  const [xIsNext, setXIsNext] = useState(true);
   const handleClick = (i) => {
     const items = [...squares];
-    items[i] = 'X';
+    items[i] = xIsNext ? 'X' : '0';
     //
     setSquares(items);
+    setXIsNext(!xIsNext);
   };
   const renderSquare = i => <Square value={squares[i]} onClick={() => handleClick(i)} />;
 
-  const status = 'Next player: X';
+  const status = 'Next player: ' + (xIsNext ? 'X' : '0');
 
   return (
     <div>
