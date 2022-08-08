@@ -6,6 +6,9 @@ const Board = () => {
   const [xIsNext, setXIsNext] = useState(true);
   const handleClick = (i) => {
     const items = [...squares];
+    if (calculateWinner(squares) || squares[i]) {
+      return;
+    }
     items[i] = xIsNext ? 'X' : '0';
     //
     setSquares(items);
